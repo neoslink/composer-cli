@@ -5,6 +5,8 @@ RUN composer global require hirak/prestissimo:0.3.4
 RUN composer global require squizlabs/php_codesniffer:2.9.1
 RUN composer global require drupal/coder:dev-8.x-2.x
 
+RUN docker-php-ext-install -j$(nproc) gd
+
 RUN phpcs --config-set colors 1
 RUN phpcs --config-set installed_paths /composer/vendor/drupal/coder/coder_sniffer
 
